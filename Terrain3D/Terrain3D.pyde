@@ -18,10 +18,12 @@ def setup():
 def draw():
     global cols, rows
     background(0)
+    stroke(255)
+    noFill()
     
     for y in range(rows):
+        beginShape(TRIANGLE_STRIP)
         for x in range(cols):
-            stroke(255)
-            noFill()
-            rect(x*scl, y*scl, scl, scl)
-            
+            vertex(x*scl, y*scl)
+            vertex(x*scl, (y+1)*scl)
+        endShape()
